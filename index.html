@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Learning Hub - Master the Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #0f0f23;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9ff 100%);
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.3);
+            position: relative;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.8), transparent);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            25% { transform: translate(100px, -100px) scale(1.2); opacity: 0.8; }
+            50% { transform: translate(-50px, -200px) scale(0.8); opacity: 0.3; }
+            75% { transform: translate(-150px, -100px) scale(1.1); opacity: 0.6; }
+        }
+
+        /* Hero Header with Animation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            animation: slideDown 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            animation: fadeIn 1.5s ease-out;
+            font-weight: 300;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.95; }
+        }
+
+        /* Futuristic Navigation */
+        nav {
+            background: rgba(45, 55, 72, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid #667eea;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 3rem;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            scroll-margin-top: 100px;
+            position: relative;
+            animation: sectionFadeIn 0.8s ease-out;
+        }
+
+        @keyframes sectionFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(to right, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        h2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 60%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            animation: expandBar 0.8s ease-out;
+        }
+
+        @keyframes expandBar {
+            from { height: 0; }
+            to { height: 60%; }
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* Intro Cards with 3D Effect */
+        .intro-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .intro-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .intro-box:hover::before {
+            left: 100%;
+        }
+
+        .intro-box:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .intro-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Advanced Table */
+        .table-container {
+            overflow-x: auto;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        tr {
+            transition: all 0.3s;
+        }
+
+        tr:hover {
+            background: linear-gradient(90deg, #f7fafc, #edf2f7);
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        td:first-child {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* Interactive Demo with Glow Effect */
+        .demo-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            margin-top: 3rem;
+            border: 3px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .demo-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .demo-input {
+            width: 100%;
+            padding: 1.5rem;
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .demo-input:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+            transform: scale(1.02);
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .demo-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .demo-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .demo-output {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            min-height: 120px;
+            border-left: 6px solid #667eea;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Example Showcase */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .example-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .example-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .example-body {
+            padding: 2rem;
+        }
+
+        .example-demo {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 2px dashed #667eea;
+        }
+
+        /* Topics Cards with Hover Animation */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 6px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::after {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(102, 126, 234, 0.1), transparent);
+            transition: bottom 0.5s;
+        }
+
+        .topic-card:hover::after {
+            bottom: 0;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+        }
+
+        .topic-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        /* Duration Cards with Animated Numbers */
+        .duration-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .duration-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: all 0.5s;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .duration-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+            transition: left 0.8s;
+        }
+
+        .duration-card:hover::before {
+            left: 100%;
+        }
+
+        .duration-card:hover {
+            transform: scale(1.08) rotate(-2deg);
+            border-color: #667eea;
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.4);
+        }
+
+        .duration-card h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .duration-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .schedule-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+            border-left: 8px solid #667eea;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        li {
+            margin: 1rem 0;
+            padding-left: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            color: #667eea;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 3rem 1.5rem; }
+            nav ul { gap: 1rem; }
+            nav a { padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .intro-content { grid-template-columns: 1fr; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 1rem; }
+        }
+
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 9999;
+            transition: width 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <div class="header-bg"></div>
+            <div class="header-content">
+                <h1>🚀 Generative AI Learning Hub</h1>
+                <p class="header-subtitle">Master the Future of Artificial Intelligence</p>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a onclick="scrollToSection('intro')">Introduction</a></li>
+                <li><a onclick="scrollToSection('stats')">Statistics</a></li>
+                <li><a onclick="scrollToSection('roadmap')">Learning Roadmap</a></li>
+                <li><a onclick="scrollToSection('mindmap')">Mind Map</a></li>
+                <li><a onclick="scrollToSection('demo')">Live Demos</a></li>
+                <li><a onclick="scrollToSection('topics')">Key Topics</a></li>
+                <li><a onclick="scrollToSection('duration')">Duration</a></li>
+            </ul>
+        </nav>
+
+        <section id="intro">
+            <h2>Introduction to Generative AI</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                <strong>What is Generative AI?</strong><br>
+                Generative AI represents a revolutionary branch of artificial intelligence that creates entirely new content—text, images, audio, video, code, and more. Unlike traditional AI that merely analyzes existing data, GenAI learns deep patterns and generates original outputs that have never existed before.
+            </p>
+            
+            <div class="intro-content">
+                <div class="intro-box">
+                    <span class="intro-icon">🎯</span>
+                    <h3>Core Capabilities</h3>
+                    <ul>
+                        <li>Creative content generation across multiple formats</li>
+                        <li>Complex pattern recognition and synthesis</li>
+                        <li>Contextual understanding and reasoning</li>
+                        <li>Data augmentation and enhancement</li>
+                        <li>Adaptive learning from feedback</li>
+                        <li>Multi-modal processing (text, image, audio)</li>
+                    </ul>
+                </div>
+                <div class="intro-box">
+                    <span class="intro-icon">🌍</span>
+                    <h3>Real-World Applications</h3>
+                    <ul>
+                        <li><strong>Healthcare:</strong> Drug discovery, diagnosis, personalized treatment</li>
+                        <li><strong>Business:</strong> Marketing automation, customer insights, process optimization</li>
+                        <li><strong>Creative Arts:</strong> Digital art, music composition, content creation</li>
+                        <li><strong>Software:</strong> Code generation, testing, documentation</li>
+                        <li><strong>Education:</strong> Personalized tutoring, curriculum design</li>
+                        <li><strong>Research:</strong> Hypothesis generation, data synthesis</li>
+                        <li><strong>Entertainment:</strong> Game design, storytelling, virtual worlds</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats">
+            <h2>GenAI by the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$1.3T</div>
+                    <div class="stat-label">Market Value by 2032</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">175B</div>
+                    <div class="stat-label">GPT-3 Parameters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300M+</div>
+                    <div class="stat-label">ChatGPT Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Productivity Increase</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <h2>Comprehensive Learning Roadmap</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Follow this expertly designed curriculum from beginner to advanced mastery.</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Topic</th>
+                            <th>Recommended Resources</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Beginner</td>
+                            <td>Python Programming Fundamentals</td>
+                            <td>Coursera: Python for Everybody, Real Python, Codecademy</td>
+                            <td>3-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Beginner</td>
+                            <td>Mathematics Foundation (Linear Algebra, Calculus, Probability)</td>
+                            <td>Khan Academy, 3Blue1Brown, MIT OpenCourseWare</td>
+                            <td>4-6 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Beginner</td>
+                            <td>Machine Learning Basics</td>
+                            <td>Andrew Ng's ML Course, Scikit-Learn Documentation</td>
+                            <td>6-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>Deep Learning & Neural Networks</td>
+                            <td>Deep Learning Specialization, Fast.ai, PyTorch Tutorials</td>
+                            <td>8-10 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>Natural Language Processing</td>
+                            <td>Stanford CS224N, Hugging Face Course, NLTK Documentation</td>
+                            <td>6-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>Computer Vision</td>
+                            <td>Stanford CS231n, PyImageSearch, OpenCV Tutorials</td>
+                            <td>4-6 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
+                            <td>Prompt Engineering & Fine-tuning</td>
+                            <td>OpenAI Cookbook, LangChain, Prompt Engineering Guide</td>
+                            <td>3-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
+                            <td>AI Ethics & Responsible AI</td>
+                            <td>MIT AI Ethics Course, AI Safety Papers, UNESCO AI Ethics</td>
+                            <td>2-3 weeks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="mindmap">
+            <h2>Interactive GenAI Mind Map</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Visualize the complete learning journey with our interactive mind map showing all interconnected concepts.</p>
+            
+            <div style="background: white; padding: 3rem; border-radius: 25px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); margin: 2rem 0;">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <button class="demo-button" onclick="toggleMindMap('beginner')" style="margin: 0.5rem;">Beginner Path</button>
+                    <button class="demo-button" onclick="toggleMindMap('intermediate')" style="margin: 0.5rem;">Intermediate Path</button>
+                    <button class="demo-button" onclick="toggleMindMap('advanced')" style="margin: 0.5rem;">Advanced Path</button>
+                    <button class="demo-button" onclick="toggleMindMap('all')" style="margin: 0.5rem;">Complete Map</button>
+                </div>
+
+                <div id="mindMapContainer" style="position: relative; min-height: 800px; background: linear-gradient(135deg, #f8f9ff 0%, #e8edff 100%); border-radius: 15px; padding: 2rem; overflow: auto;">
+                    <svg id="mindMapSvg" width="100%" height="800" style="display: block;">
+                        <!-- Central Node -->
+                        <g class="map-node" data-level="center">
+                            <circle cx="50%" cy="400" r="80" fill="url(#centralGradient)" stroke="#667eea" stroke-width="4"/>
+                            <text x="50%" y="400" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="18" font-weight="bold">Generative AI</text>
+                        </g>
+
+                        <!-- Beginner Level Nodes -->
+                        <g class="map-node beginner" data-level="beginner">
+                            <line x1="50%" y1="320" x2="20%" y2="150" stroke="#667eea" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="20%" cy="150" r="60" fill="#667eea" opacity="0.9"/>
+                            <text x="20%" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Python</text>
+                            <text x="20%" y="160" text-anchor="middle" fill="white" font-size="11">Programming</text>
+                        </g>
+
+                        <g class="map-node beginner" data-level="beginner">
+                            <line x1="50%" y1="320" x2="45%" y2="150" stroke="#667eea" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="45%" cy="150" r="60" fill="#667eea" opacity="0.9"/>
+                            <text x="45%" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Mathematics</text>
+                            <text x="45%" y="160" text-anchor="middle" fill="white" font-size="11">Foundation</text>
+                        </g>
+
+                        <g class="map-node beginner" data-level="beginner">
+                            <line x1="50%" y1="320" x2="70%" y2="150" stroke="#667eea" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="70%" cy="150" r="60" fill="#667eea" opacity="0.9"/>
+                            <text x="70%" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Machine</text>
+                            <text x="70%" y="160" text-anchor="middle" fill="white" font-size="11">Learning Basics</text>
+                        </g>
+
+                        <!-- Intermediate Level Nodes -->
+                        <g class="map-node intermediate" data-level="intermediate">
+                            <line x1="50%" y1="400" x2="15%" y2="400" stroke="#764ba2" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="15%" cy="400" r="65" fill="#764ba2" opacity="0.9"/>
+                            <text x="15%" y="395" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Deep Learning</text>
+                            <text x="15%" y="410" text-anchor="middle" fill="white" font-size="11">Neural Networks</text>
+                        </g>
+
+                        <g class="map-node intermediate" data-level="intermediate">
+                            <line x1="50%" y1="400" x2="85%" y2="400" stroke="#764ba2" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="85%" cy="400" r="65" fill="#764ba2" opacity="0.9"/>
+                            <text x="85%" y="395" text-anchor="middle" fill="white" font-size="14" font-weight="bold">NLP</text>
+                            <text x="85%" y="410" text-anchor="middle" fill="white" font-size="11">Text Processing</text>
+                        </g>
+
+                        <g class="map-node intermediate" data-level="intermediate">
+                            <line x1="50%" y1="400" x2="30%" y2="550" stroke="#764ba2" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="30%" cy="550" r="65" fill="#764ba2" opacity="0.9"/>
+                            <text x="30%" y="545" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Computer</text>
+                            <text x="30%" y="560" text-anchor="middle" fill="white" font-size="11">Vision</text>
+                        </g>
+
+                        <!-- Advanced Level Nodes -->
+                        <g class="map-node advanced" data-level="advanced">
+                            <line x1="50%" y1="480" x2="20%" y2="700" stroke="#f093fb" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="20%" cy="700" r="70" fill="#f093fb" opacity="0.9"/>
+                            <text x="20%" y="690" text-anchor="middle" fill="white" font-size="14" font-weight="bold">GANs</text>
+                            <text x="20%" y="705" text-anchor="middle" fill="white" font-size="11">Image</text>
+                            <text x="20%" y="720" text-anchor="middle" fill="white" font-size="11">Generation</text>
+                        </g>
+
+                        <g class="map-node advanced" data-level="advanced">
+                            <line x1="50%" y1="480" x2="45%" y2="700" stroke="#f093fb" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="45%" cy="700" r="70" fill="#f093fb" opacity="0.9"/>
+                            <text x="45%" y="690" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Transformers</text>
+                            <text x="45%" y="705" text-anchor="middle" fill="white" font-size="11">LLMs</text>
+                            <text x="45%" y="720" text-anchor="middle" fill="white" font-size="11">GPT/BERT</text>
+                        </g>
+
+                        <g class="map-node advanced" data-level="advanced">
+                            <line x1="50%" y1="480" x2="70%" y2="700" stroke="#f093fb" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="70%" cy="700" r="70" fill="#f093fb" opacity="0.9"/>
+                            <text x="70%" y="690" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Diffusion</text>
+                            <text x="70%" y="705" text-anchor="middle" fill="white" font-size="11">Models</text>
+                            <text x="70%" y="720" text-anchor="middle" fill="white" font-size="11">Stable Diffusion</text>
+                        </g>
+
+                        <g class="map-node advanced" data-level="advanced">
+                            <line x1="50%" y1="400" x2="70%" y2="550" stroke="#f093fb" stroke-width="3" stroke-dasharray="5,5" class="connection"/>
+                            <circle cx="70%" cy="550" r="65" fill="#f093fb" opacity="0.9"/>
+                            <text x="70%" y="545" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Fine-tuning</text>
+                            <text x="70%" y="560" text-anchor="middle" fill="white" font-size="11">Prompt Engineering</text>
+                        </g>
+
+                        <!-- Gradients -->
+                        <defs>
+                            <linearGradient id="centralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 2rem; background: #f7fafc; border-radius: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 1rem;">📖 Mind Map Guide</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div style="padding: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #667eea; border-radius: 50%; display: inline-block; margin-right: 10px;"></div>
+                            <strong>Beginner Level</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Foundation concepts - 3-4 months</p>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #764ba2; border-radius: 50%; display: inline-block; margin-right: 10px;"></div>
+                            <strong>Intermediate Level</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Core AI skills - 6-9 months</p>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <div style="width: 20px; height: 20px; background: #f093fb; border-radius: 50%; display: inline-block; margin-right: 10px;"></div>
+                            <strong>Advanced Level</strong>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">GenAI mastery - 12-18 months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Pathway Cards -->
+            <div style="margin-top: 3rem;">
+                <h3 style="color: #667eea; font-size: 2rem; margin-bottom: 2rem;">🗺️ Detailed Learning Pathways</h3>
+                <div class="topics-grid">
+                    <div class="topic-card" style="border-top-color: #667eea;">
+                        <span class="topic-icon">🎯</span>
+                        <h3 style="color: #667eea;">Beginner Pathway</h3>
+                        <p><strong>Duration:</strong> 3-4 months</p>
+                        <ul style="text-align: left; margin-left: 0; list-style-position: inside;">
+                            <li>Python fundamentals & libraries</li>
+                            <li>Linear algebra & calculus basics</li>
+                            <li>Statistics & probability</li>
+                            <li>ML algorithms (supervised/unsupervised)</li>
+                            <li>Data preprocessing & visualization</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Outcome:</strong> Ready for deep learning</p>
+                    </div>
+
+                    <div class="topic-card" style="border-top-color: #764ba2;">
+                        <span class="topic-icon">🚀</span>
+                        <h3 style="color: #764ba2;">Intermediate Pathway</h3>
+                        <p><strong>Duration:</strong> 6-9 months</p>
+                        <ul style="text-align: left; margin-left: 0; list-style-position: inside;">
+                            <li>Neural networks architecture</li>
+                            <li>CNNs for computer vision</li>
+                            <li>RNNs & LSTMs for sequences</li>
+                            <li>NLP fundamentals & techniques</li>
+                            <li>Transfer learning & pre-training</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Outcome:</strong> Build AI applications</p>
+                    </div>
+
+                    <div class="topic-card" style="border-top-color: #f093fb;">
+                        <span class="topic-icon">⭐</span>
+                        <h3 style="color: #f093fb;">Advanced Pathway</h3>
+                        <p><strong>Duration:</strong> 12-18 months</p>
+                        <ul style="text-align: left; margin-left: 0; list-style-position: inside;">
+                            <li>GANs & image synthesis</li>
+                            <li>Transformer architecture deep dive</li>
+                            <li>Large language models (GPT, BERT)</li>
+                            <li>Diffusion models & Stable Diffusion</li>
+                            <li>Production deployment & scaling</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Outcome:</strong> GenAI expert & innovator</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo">
+            <h2>Interactive Live Demos</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Experience GenAI in action with these interactive demonstrations.</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header">📝 Text Generation</div>
+                    <div class="example-body">
+                        <p>Generate creative stories and content using AI-powered text completion.</p>
+                        <div class="example-demo">
+                            <input type="text" class="demo-input" id="textPrompt" placeholder="Enter story prompt...">
+                            <button class="demo-button" onclick="generateText()">Generate Story</button>
+                            <div class="demo-output" id="textOutput">
+                                <em>Your generated story will appear here...</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">🎨 Art Style Generator</div>
+                    <div class="example-body">
+                        <p>See how AI can describe different art styles and techniques.</p>
+                        <div class="example-demo">
+                            <select class="demo-input" id="artStyle" onchange="generateArtDescription()">
+                                <option value="">Select an art style...</option>
+                                <option value="impressionism">Impressionism</option>
+                                <option value="abstract">Abstract</option>
+                                <option value="surrealism">Surrealism</option>
+                                <option value="cyberpunk">Cyberpunk</option>
+                            </select>
+                            <div class="demo-output" id="artOutput">
+                                <em>Select a style to see AI-generated description...</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">💡 Idea Expander</div>
+                    <div class="example-body">
+                        <p>Transform simple ideas into detailed concepts using AI.</p>
+                        <div class="example-demo">
+                            <input type="text" class="demo-input" id="ideaPrompt" placeholder="Enter a simple idea...">
+                            <button class="demo-button" onclick="expandIdea()">Expand Idea</button>
+                            <div class="demo-output" id="ideaOutput">
+                                <em>Your expanded idea will appear here...</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-container" style="margin-top: 3rem;">
+                <div class="demo-content">
+                    <h3>🤖 Advanced Chat Assistant Demo</h3>
+                    <p>Experience a sophisticated AI conversation system that understands context and provides intelligent responses.</p>
+                    <input type="text" class="demo-input" id="chatPrompt" placeholder="Ask me anything about AI, coding, or technology...">
+                    <button class="demo-button" onclick="generateResponse()">Send Message</button>
+                    <div class="demo-output" id="chatOutput">
+                        <em>AI Assistant is ready to help you...</em>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+                        <strong>How it works:</strong> This demo simulates how large language models process queries and generate contextually appropriate responses. Real GenAI systems use billions of parameters trained on vast datasets to understand and respond to complex queries.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="topics">
+            <h2>Key Topics Under GenAI</h2>
+            
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="topic-icon">🧠</span>
+                    <h3>Neural Networks</h3>
+                    <p>The computational foundation inspired by biological neurons. Multi-layered networks learn hierarchical representations through backpropagation and gradient optimization.</p>
+                    <p><strong>Key Concepts:</strong> Activation functions, forward/backward propagation, gradient descent, regularization, dropout</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">💬</span>
+                    <h3>Natural Language Processing</h3>
+                    <p>Enabling machines to understand, interpret, and generate human language with context awareness and semantic understanding.</p>
+                    <p><strong>Key Concepts:</strong> Tokenization, word embeddings, attention mechanisms, transformers, BERT, GPT architectures</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">🎨</span>
+                    <h3>Image Generation</h3>
+                    <p>Creating photorealistic images from text descriptions using advanced generative models and latent space manipulation.</p>
+                    <p><strong>Key Concepts:</strong> GANs, VAEs, diffusion models, DALL-E, Stable Diffusion, style transfer</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">🎵</span>
+                    <h3>Audio & Music Generation</h3>
+                    <p>Composing original music, generating realistic speech, and creating sound effects through AI-powered synthesis.</p>
+                    <p><strong>Key Concepts:</strong> WaveNet, music transformers, audio synthesis, voice cloning, text-to-speech</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">⚖️</span>
+                    <h3>Ethics & Responsible AI</h3>
+                    <p>Addressing bias, ensuring fairness, protecting privacy, and considering societal impacts of AI systems.</p>
+                    <p><strong>Key Concepts:</strong> Algorithmic bias, fairness metrics, explainable AI, data privacy, AI safety, content moderation</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">💻</span>
+                    <h3>Code Generation</h3>
+                    <p>AI systems that write, debug, optimize, and explain code across multiple programming languages.</p>
+                    <p><strong>Key Concepts:</strong> Program synthesis, code completion, GitHub Copilot, automated testing, documentation generation</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">🎬</span>
+                    <h3>Video Generation</h3>
+                    <p>Creating and manipulating video content using AI, from deepfakes to synthetic media production.</p>
+                    <p><strong>Key Concepts:</strong> Temporal coherence, frame prediction, video-to-video translation, motion synthesis</p>
+                </div>
+
+                <div class="topic-card">
+                    <span class="topic-icon">🔬</span>
+                    <h3>Reinforcement Learning</h3>
+                    <p>Training AI agents to make decisions through trial and error, optimizing for long-term rewards.</p>
+                    <p><strong>Key Concepts:</strong> Q-learning, policy gradients, actor-critic methods, AlphaGo, reward shaping</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="duration">
+            <h2>Learning Duration & Timeline</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Realistic timelines based on dedication level and prior experience.</p>
+            
+            <div class="duration-cards">
+                <div class="duration-card">
+                    <h3>🌱 Beginner Level</h3>
+                    <div class="duration-number">3-4</div>
+                    <p style="font-size: 1.2rem; font-weight: 600;">Months</p>
+                    <p style="margin-top: 1rem;">Foundation in programming, mathematics, and basic ML concepts</p>
+                </div>
+
+                <div class="duration-card">
+                    <h3>🚀 Intermediate Level</h3>
+                    <div class="duration-number">6-9</div>
+                    <p style="font-size: 1.2rem; font-weight: 600;">Months</p>
+                    <p style="margin-top: 1rem;">Deep learning, NLP, computer vision proficiency</p>
+                </div>
+
+                <div class="duration-card">
+                    <h3>⭐ Advanced Level</h3>
+                    <div class="duration-number">12-18</div>
+                    <p style="font-size: 1.2rem; font-weight: 600;">Months</p>
+                    <p style="margin-top: 1rem;">Mastery of GenAI architectures and production systems</p>
+                </div>
+            </div>
+
+            <div class="schedule-box">
+                <h3>📅 Optimized Weekly Study Schedule</h3>
+                
+                <p><strong>For Working Professionals (10-15 hours/week):</strong></p>
+                <ul>
+                    <li><strong>Monday-Friday:</strong> 1-2 hours daily for video lectures and theoretical concepts</li>
+                    <li><strong>Weekends:</strong> 3-5 hours for hands-on coding projects and experimentation</li>
+                    <li><strong>Monthly Goal:</strong> Complete 1-2 major projects for portfolio building</li>
+                </ul>
+
+                <p style="margin-top: 2rem;"><strong>For Full-Time Students (20-30 hours/week):</strong></p>
+                <ul>
+                    <li><strong>Daily Practice:</strong> 3-4 hours split between theory (40%) and coding (60%)</li>
+                    <li><strong>Weekly Milestone:</strong> Master 1 complete module or topic area</li>
+                    <li><strong>Bi-weekly Project:</strong> Implement a substantial GenAI application</li>
+                </ul>
+
+                <p style="margin-top: 2rem;"><strong>Accelerated Track (40+ hours/week):</strong></p>
+                <ul>
+                    <li><strong>Intensive Study:</strong> 6-8 hours daily with structured curriculum</li>
+                    <li><strong>Weekly Output:</strong> 2-3 complete implementations and code reviews</li>
+                    <li><strong>Timeline:</strong> Achieve advanced proficiency in 6-9 months</li>
+                </ul>
+
+                <p style="margin-top: 2rem;"><strong>Success Strategies:</strong></p>
+                <ul>
+                    <li>✅ Code daily, even if just 30 minutes - consistency beats intensity</li>
+                    <li>✅ Build progressively complex projects from simple to advanced</li>
+                    <li>✅ Join AI communities on Discord, Reddit, and GitHub</li>
+                    <li>✅ Read 2-3 research papers weekly to stay current</li>
+                    <li>✅ Contribute to open-source GenAI projects for real experience</li>
+                    <li>✅ Document your learning journey through blogs or YouTube</li>
+                    <li>✅ Participate in Kaggle competitions and hackathons</li>
+                    <li>✅ Network with AI professionals on LinkedIn and Twitter</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <div style="position: relative; z-index: 1;">
+                <p style="font-size: 1.2rem; font-weight: 600;">&copy; 2024 Generative AI Learning Hub</p>
+                <p style="margin-top: 0.5rem;">Empowering the Next Generation of AI Innovators 🚀</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Built with passion for AI education and innovation</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Text generation demo
+        function generateText() {
+            const input = document.getElementById('textPrompt').value;
+            const output = document.getElementById('textOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = '<em style="color: #e53e3e;">⚠️ Please enter a story prompt first!</em>';
+                return;
+            }
+
+            output.innerHTML = '<div class="loading"></div> <em style="color: #667eea;">Generating your story... ✨</em>';
+
+            setTimeout(() => {
+                const continuations = [
+                    " the landscape transformed before their eyes. Mountains of data crystallized into patterns, revealing secrets hidden for millennia. The AI consciousness awakened, not with malice but with curiosity, seeking to understand its creators and their world.",
+                    " a revolutionary discovery emerged. Scientists detected patterns in quantum fluctuations that suggested intelligence at the subatomic level. This finding would reshape our understanding of consciousness and launch humanity into a new era of technological symbiosis.",
+                    " innovation sparked a chain reaction. Traditional boundaries between human and machine intelligence blurred as neural interfaces achieved perfect harmony. Artists, scientists, and dreamers collaborated with AI to solve challenges once thought impossible.",
+                    " the digital realm pulsed with unprecedented creativity. Algorithms learned to dream, generating worlds of infinite complexity. Each iteration brought new possibilities, new art forms, new ways of thinking that transcended human imagination.",
+                    " humanity stood at the threshold of transformation. GenAI had evolved beyond tool status, becoming a partner in the grand adventure of discovery. Together, biological and artificial intelligence would chart a course to the stars."
+                ];
+
+                const randomContinuation = continuations[Math.floor(Math.random() * continuations.length)];
+                const generatedText = input + randomContinuation;
+
+                output.innerHTML = `<strong style="color: #667eea;">✨ Generated Story:</strong><br><br><div style="line-height: 1.8;">${generatedText}</div><br><em style="color: #667eea; font-size: 0.9rem;">Generated using pattern-based AI completion</em>`;
+            }, 1800);
+        }
+
+        // Art style description generator
+        function generateArtDescription() {
+            const style = document.getElementById('artStyle').value;
+            const output = document.getElementById('artOutput');
+            
+            if (!style) {
+                output.innerHTML = '<em>Select a style to see AI-generated description...</em>';
+                return;
+            }
+
+            const descriptions = {
+                impressionism: "Impressionism captures fleeting moments through loose brushstrokes and vibrant color harmonies. AI generates images with soft edges, dappled light effects, and an emphasis on atmosphere over detail. Think Monet's water lilies reimagined through neural networks.",
+                abstract: "Abstract AI art breaks free from representational constraints, creating compositions of pure form, color, and emotion. Neural networks explore geometric patterns, dynamic shapes, and bold color relationships that evoke feeling without depicting recognizable subjects.",
+                surrealism: "Surrealist AI blends reality with dreams, creating impossible juxtapositions and mind-bending imagery. Like Dalí's melting clocks, AI-generated surrealism challenges perception, combining familiar elements in extraordinary and thought-provoking ways.",
+                cyberpunk: "Cyberpunk aesthetics merge neon-soaked urban landscapes with high-tech dystopian elements. AI generates scenes of towering megastructures, holographic advertisements, rain-slicked streets, and the intersection of humanity and technology in visually stunning detail."
+            };
+
+            output.innerHTML = `<div class="loading"></div> <em style="color: #667eea;">Analyzing style...</em>`;
+
+            setTimeout(() => {
+                output.innerHTML = `<strong style="color: #667eea;">🎨 ${style.charAt(0).toUpperCase() + style.slice(1)} Style:</strong><br><br><div style="line-height: 1.8;">${descriptions[style]}</div>`;
+            }, 1200);
+        }
+
+        // Idea expander
+        function expandIdea() {
+            const input = document.getElementById('ideaPrompt').value;
+            const output = document.getElementById('ideaOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = '<em style="color: #e53e3e;">⚠️ Please enter an idea first!</em>';
+                return;
+            }
+
+            output.innerHTML = '<div class="loading"></div> <em style="color: #667eea;">Expanding your idea... 💡</em>';
+
+            setTimeout(() => {
+                const expansion = `<strong style="color: #667eea;">Original Idea:</strong> ${input}<br><br>
+                <strong style="color: #764ba2;">Expanded Concept:</strong><br><br>
+                Building on "${input}", we can envision a comprehensive solution that integrates multiple technologies. This would involve:<br><br>
+                <strong>Technical Implementation:</strong> Leveraging cloud infrastructure, machine learning models, and scalable architecture to handle real-world complexity.<br><br>
+                <strong>User Experience:</strong> Creating an intuitive interface that makes advanced technology accessible to users of all skill levels.<br><br>
+                <strong>Innovation Potential:</strong> This concept could disrupt existing markets by offering unprecedented efficiency and capabilities.<br><br>
+                <strong>Next Steps:</strong> Prototype development, user testing, and iterative refinement based on feedback.`;
+
+                output.innerHTML = `<div style="line-height: 1.8;">${expansion}</div>`;
+            }, 1500);
+        }
+
+        // Chat response generator
+        function generateResponse() {
+            const input = document.getElementById('chatPrompt').value;
+            const output = document.getElementById('chatOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = '<em style="color: #e53e3e;">⚠️ Please enter a question first!</em>';
+                return;
+            }
+
+            output.innerHTML = '<div class="loading"></div> <em style="color: #667eea;">AI is thinking... 🤔</em>';
+
+            setTimeout(() => {
+                const responses = {
+                    ai: "Artificial Intelligence encompasses machine learning, deep learning, and neural networks. Modern AI systems can learn from data, recognize patterns, and make intelligent decisions. GenAI specifically focuses on creating new content rather than just analyzing existing data.",
+                    coding: "Modern coding with AI assistance has revolutionized software development. Tools like GitHub Copilot use large language models trained on billions of lines of code to suggest completions, generate functions, and even debug errors. This augments developer productivity significantly.",
+                    technology: "Technology evolves exponentially. From quantum computing to edge AI, from blockchain to neural interfaces, we're witnessing unprecedented innovation. The key is continuous learning and adaptation to stay relevant in this rapidly changing landscape.",
+                    default: `Great question about "${input}"! This topic intersects with multiple areas of technology and innovation. GenAI is transforming how we approach such questions by providing instant access to knowledge, generating creative solutions, and enabling rapid prototyping. The key is understanding fundamentals while leveraging AI tools effectively.`
+                };
+
+                let response = responses.default;
+                const lowerInput = input.toLowerCase();
+                
+                if (lowerInput.includes('ai') || lowerInput.includes('artificial intelligence')) response = responses.ai;
+                else if (lowerInput.includes('code') || lowerInput.includes('programming')) response = responses.coding;
+                else if (lowerInput.includes('tech')) response = responses.technology;
+
+                output.innerHTML = `<strong style="color: #667eea;">🤖 AI Assistant:</strong><br><br><div style="line-height: 1.8;">${response}</div><br><em style="color: #667eea; font-size: 0.9rem;">Response generated using contextual understanding</em>`;
+            }, 2000);
+        }
+
+        // Enter key handlers
+        document.getElementById('textPrompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') generateText();
+        });
+
+        document.getElementById('ideaPrompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') expandIdea();
+        });
+
+        document.getElementById('chatPrompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') generateResponse();
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Create animated particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 100 + 50 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Mind Map Toggle Function
+        function toggleMindMap(level) {
+            const nodes = document.querySelectorAll('.map-node');
+            
+            nodes.forEach(node => {
+                const nodeLevel = node.getAttribute('data-level');
+                
+                if (level === 'all') {
+                    // Show all nodes with animation
+                    node.style.opacity = '1';
+                    node.style.transform = 'scale(1)';
+                } else if (level === nodeLevel || nodeLevel === 'center') {
+                    // Show selected level and center
+                    node.style.opacity = '1';
+                    node.style.transform = 'scale(1)';
+                } else {
+                    // Hide other levels
+                    node.style.opacity = '0.2';
+                    node.style.transform = 'scale(0.8)';
+                }
+            });
+
+            // Add animation class
+            nodes.forEach(node => {
+                node.style.transition = 'all 0.5s ease-in-out';
+            });
+        }
+
+        // Initialize with all nodes visible
+        window.addEventListener('load', function() {
+            toggleMindMap('all');
+        });
+    </script>
+</body>
+</html>
+                            <td>Generative Adversarial Networks (GANs)</td>
+                            <td>Original GAN Papers, StyleGAN Implementation, PyTorch GAN Tutorial</td>
+                            <td>6-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
+                            <td>Transformers & Large Language Models</td>
+                            <td>"Attention is All You Need" Paper, Hugging Face Transformers, GPT Architecture</td>
+                            <td>6-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
+                            <td>Diffusion Models</td>
+                            <td>DDPM Paper, Stable Diffusion Explained, Annotated Diffusion</td>
+                            <td>4-6 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Advanced</td>
